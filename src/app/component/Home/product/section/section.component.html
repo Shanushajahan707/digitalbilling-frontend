@@ -1,0 +1,28 @@
+<section id="products" class="py-16 bg-white scroll-reveal">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12 logo-text text-pink-500">
+      Our Products
+    </h2>
+
+    <!-- Product Categories -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <app-category
+        class="scroll-reveal"
+        *ngFor="let category of categories"
+        [title]="category.title"
+        [description]="category.description"
+        [imageUrl]="category.imageUrl"
+      >
+      </app-category>
+    </div>
+
+    <!-- Featured Products -->
+    <!-- <h3 class="text-2xl font-semibold text-center mb-8 logo-text">Featured Products</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <app-item 
+          *ngFor="let product of products"
+          [product]="product">
+        </app-item>
+      </div> -->
+  </div>
+</section>

@@ -1,0 +1,24 @@
+/* Scroll-reveal animation */
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Scroll reveal utility */
+  .scroll-reveal {
+    opacity: 0;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  
+    /* Scroll-driven animation */
+    animation-timeline: view();
+    animation-range: entry 20% cover 30%;
+  }
+  

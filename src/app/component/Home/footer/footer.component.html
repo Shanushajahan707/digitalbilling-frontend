@@ -1,0 +1,75 @@
+<footer class="bg-black text-white py-8">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- About -->
+      <div>
+        <h3 class="text-xl font-bold mb-4 logo-text">Belles Avenue</h3>
+        <p class="text-amber-100 mb-4">
+          Elegant fashion and accessories for the modern woman. Discover our
+          curated collections.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-amber-100 hover:text-white"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" class="text-amber-100 hover:text-white"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="text-amber-100 hover:text-white"
+            ><i class="fab fa-pinterest-p"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-xl font-bold mb-4 logo-text">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-pink-100 hover:text-white">Home</a></li>
+          <li>
+            <a href="#products" class="text-amber-100 hover:text-white"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a href="#" class="text-amber-100 hover:text-white">About Us</a>
+          </li>
+          <li>
+            <a href="#" class="text-amber-100 hover:text-white">Contact</a>
+          </li>
+          <li>
+            <a href="#" class="text-amber-100 hover:text-white"
+              >Privacy Policy</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="text-xl font-bold mb-4 logo-text">Newsletter</h3>
+        <p class="text-amber-100 mb-4">
+          Subscribe to receive updates on new arrivals and special offers.
+        </p>
+        <form (ngSubmit)="onNewsletterSubmit(emailInput.value)" class="flex">
+          <input
+            #emailInput
+            type="email"
+            placeholder="Your email"
+            class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-700"
+          />
+          <button
+            type="submit"
+            class="bg-pink-500 px-4 py-2 rounded-r hover:bg-pink-500 transition"
+          >
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="border-t border-pink-500 mt-8 pt-6 text-center text-amber-200">
+      <p>&copy; {{ currentYear }} Belles Avenue. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
