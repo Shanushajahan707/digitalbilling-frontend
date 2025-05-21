@@ -4,6 +4,7 @@ import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NewinvoiceComponent } from './component/newinvoice/newinvoice.component';
 import { MainComponent } from './component/Home/main/main.component';
+import { PrivacyPolicyComponent } from './component/Home/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   // {
@@ -29,7 +30,11 @@ const routes: Routes = [
   ,{
     path: 'BellesHome',
     component:MainComponent
-  }
+  },
+  // {
+  //   path: 'privacy-policy',
+  //   component: PrivacyPolicyComponent
+  // }
 ];
 
 

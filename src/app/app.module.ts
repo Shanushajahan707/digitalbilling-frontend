@@ -23,6 +23,7 @@ import { NamesComponent } from './component/Home/company/names/names.component';
 import { AboutComponent } from './component/Home/about/about.component';
 import { VideoComponent } from './component/Home/shop/video/video.component';
 import { PhotoComponent } from './component/Home/shop/photo/photo.component';
+import { PrivacyPolicyComponent } from './component/Home/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PhotoComponent } from './component/Home/shop/photo/photo.component';
     NamesComponent,
     AboutComponent,
     VideoComponent,
-    PhotoComponent
+    PhotoComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

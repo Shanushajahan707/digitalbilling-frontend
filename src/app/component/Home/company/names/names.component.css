@@ -39,9 +39,12 @@
   }
   .logo-img {
     background-color: white;
-    background-blend-mode: lighten;
+    aspect-ratio: 1/1; /* Maintain square aspect ratio */
+    object-fit: cover;
+    mix-blend-mode: color-burn;
   }
   
+
   
   @media (min-width: 640px) { /* Small screens and up */
     .logo-img {
