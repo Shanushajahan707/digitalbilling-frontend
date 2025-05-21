@@ -3,8 +3,9 @@
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
   overflow: hidden;
-  border-radius: 8px; /* Optional: Adds rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem; /* adds spacing below iframe */
 }
 
 .iframe-container iframe {
@@ -14,4 +15,11 @@
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* Responsive tweaks for small devices */
+@media (max-width: 640px) {
+  .iframe-container {
+    padding-top: 75%; /* Adjust aspect ratio for taller iframe */
+  }
 }
