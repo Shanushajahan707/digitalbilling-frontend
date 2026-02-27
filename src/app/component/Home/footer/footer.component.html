@@ -1,76 +1,68 @@
-<footer class="bg-black text-white py-8">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- About -->
-      <div>
-        <h3 class="text-xl font-bold mb-4 logo-text">Belles Avenue</h3>
-        <p class="text-amber-100 mb-4">
-          Elegant fashion and accessories for the modern woman. Discover our
-          curated collections.
-        </p>
-        <div class="flex space-x-4">
-          <a href="#" class="text-amber-100 hover:text-white"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a href="#" class="text-amber-100 hover:text-white"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="#" class="text-amber-100 hover:text-white"
-            ><i class="fab fa-pinterest-p"></i
-          ></a>
+<footer class="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-16 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-pink-500/10 rounded-full filter blur-3xl"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <!-- Enhanced Header -->
+    <div class="text-center mb-12">
+      <div class="mb-6">
+        <span
+          class="bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-bold px-6 py-3 rounded-full shadow-lg inline-flex items-center">
+          <i class="fas fa-gem mr-2"></i> Belles Avenue
+        </span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Your Trusted Jewelry
+          Partner</span>
+      </h2>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        Elegant jewelry and accessories for the modern woman. Discover our curated collections.
+      </p>
+    </div>
+
+    <!-- Enhanced Bottom Section -->
+    <div class="mt-16 pt-8 border-t flex flex-col border-pink-500/20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Contact Info -->
+        <div class="text-center md:text-left">
+          <h4 class="text-lg font-semibold mb-4 text-pink-400">Get in Touch</h4>
+          <div class="space-y-2 text-gray-300">
+            <p class="flex items-center justify-center md:justify-start">
+              <i class="fas fa-map-marker-alt mr-3 text-pink-500"></i>
+              Belles Avenue, Punalur, Kerala
+            </p>
+            <p class="flex items-center justify-center md:justify-start">
+              <i class="fas fa-phone-alt mr-3 text-pink-500"></i>
+              <a href="https://wa.me/917025000970" class="hover:text-pink-400 transition-colors">
+                +91 70250 00970
+              </a>
+            </p>
+            <p class="flex items-center justify-center md:justify-start">
+              <i class="fas fa-envelope mr-3 text-pink-500"></i>
+              <a href="mailto:avenuesbeautyhub@gmail.com" class="hover:text-pink-400 transition-colors">
+                avenuesbeautyhubgmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center md:text-right">
+          <h4 class="text-lg font-semibold mb-4 text-pink-400">Business Hours</h4>
+          <div class="space-y-2 text-gray-300">
+            <p>Monday - Saturday: 9:00 AM - 9:00 PM</p>
+            <p>Sunday: 9:00 AM - 8:00 PM</p>
+          </div>
         </div>
       </div>
 
-      <!-- Quick Links -->
-      <div>
-        <h3 class="text-xl font-bold mb-4 logo-text">Quick Links</h3>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-pink-100 hover:text-white">Home</a></li>
-          <li>
-            <a href="#products" class="text-amber-100 hover:text-white"
-              >Products</a
-            >
-          </li>
-          <li>
-            <a href="#" class="text-amber-100 hover:text-white">About Us</a>
-          </li>
-          <li>
-            <a href="#" class="text-amber-100 hover:text-white">Contact</a>
-          </li>
-          <!-- <li>
-            <a [routerLink]="['/privacy-policy']" class="text-amber-100 hover:text-white"
-              >Privacy Policy</a
-            >
-          </li> -->
-        </ul>
-      </div>
-
-      <!-- Newsletter -->
-      <div>
-        <h3 class="text-xl font-bold mb-4 logo-text">Newsletter</h3>
-        <p class="text-amber-100 mb-4">
-          Subscribe to receive updates on new arrivals and special offers.
+      <div class="mt-8 pt-8 border-t border-pink-500/20 text-center">
+        <p class="text-gray-400">
+          &copy; {{ currentYear }} Belles Avenue. All rights reserved. |
+          <span class="text-pink-400">Crafted with <i class="fas fa-heart text-pink-500"></i> for jewelry lovers</span>
         </p>
-        <form (ngSubmit)="onNewsletterSubmit(emailInput.value)" class="flex">
-          <input
-            #emailInput
-            type="email"
-            placeholder="Your email"
-            class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-700"
-          />
-          <button
-            type="submit"
-            class="bg-pink-500 px-4 py-2 rounded-r hover:bg-pink-500 transition"
-          >
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
       </div>
-    </div>
-
-    <div class="border-t border-pink-500 mt-8 pt-6 text-center text-amber-200">
-      <p>&copy; {{ currentYear }} Belles Avenue. All rights reserved.</p>
     </div>
   </div>
- 
 </footer>

@@ -14,12 +14,12 @@ interface Brand {
 })
 export class NamesComponent {
   companyDataLeft = [
-    { name: "Loreal", logo: "https://www.pngfind.com/pngs/m/263-2639122_loreal-paris-logo-png-loreal-transparent-png.png" },
+    { name: "Loreal", logo: "https://logos-world.net/wp-content/uploads/2020/04/LOreal-Logo.png" },
     { name: "Lakme", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Lakm%C3%A9_logo.jpg" },
     { name: "Dazler", logo: "https://www.dazller.co.in/cdn/shop/files/dazller_logo_1.png?v=1681888091&width=598" },
-    { name: "Mars", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Yt-A4YqXHQWsu6ou7IbeGLX6qZ5O7-2bKQ&s" },
-    { name: "Dermaco", logo: "https://images.yourstory.com/cs/images/companies/832143151843489829666727211459619963535360n1-1644384674373.jpg?fm=auto&ar=1:1&mode=fill&fill=solid&fill-color=fff" },
-    { name: "Dermdoc", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaH2BxEejehMjgYVSmwh3CMSXqoRkb9v6inw&s" },
+    { name: "Mars", logo: "https://cdn.freebiesupply.com/logos/large/2x/mars-logo-png-transparent.png" },
+    { name: "Dermaco", logo: "https://www.theshoppingfriendly.com/wp-content/uploads/2023/09/TheDermaCo.webp" },
+    { name: "Dermdoc", logo: "https://buydermdoc.com/cdn/shop/files/dd_new_logo-01.png?v=1673335338&width=400" },
 
   ];
 

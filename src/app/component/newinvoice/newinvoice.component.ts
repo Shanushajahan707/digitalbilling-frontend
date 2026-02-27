@@ -13,7 +13,7 @@ export class NewinvoiceComponent {
   private timeInterval: any;
   totalDiscount: number = 0;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     // Set the initial date and time
@@ -91,39 +91,39 @@ export class NewinvoiceComponent {
   calculateTotalAmount(): void {
     let totalAmount = 0;
     let totalDiscount = 0;
-  
+
     this.products.controls.forEach((group) => {
       const quantity = +group.get('quantity')?.value || 0;
       const shopRate = +group.get('shopRate')?.value || 0;
       const mrp = +group.get('mrp')?.value || 0;
       let discount = +group.get('discount')?.value || 0;
-  
+
       // Total values
       const totalShopRate = quantity * shopRate;
       const totalMRP = quantity * mrp;
-  
+
       // If discount is not manually provided, compute it as (totalMRP - totalShopRate)
       if (!discount) {
         discount = totalMRP - totalShopRate;
       } else {
         discount += totalMRP - totalShopRate;
       }
-  
+
       // Ensure the discount field in the form is up-to-date (optional)
       group.get('discount')?.setValue(discount);
-  
+
       totalAmount += totalShopRate;
       totalDiscount += discount;
     });
-  
+
     this.totalDiscount = totalDiscount;
     this.billForm.get('total')?.setValue(totalAmount.toFixed(2));
     this.billForm.get('totalDiscount')?.setValue(this.totalDiscount.toFixed(2));
   }
-  
-  
-  
-  
+
+
+
+
 
   addProduct(): void {
     this.products.push(this.createProductGroup());

@@ -1,43 +1,82 @@
 <!-- video.component.html -->
-<section id="collections" class="relative h-screen overflow-hidden">
-    <!-- Multi-Video Background -->
-    <div class="absolute inset-0 z-0 bg-black">
-      <!-- Videos Container - Only one video is visible at a time with crossfade transitions -->
-     <!-- Videos Container - Dynamic with *ngFor -->
-<div class="video-container relative h-full w-full">
-    <div *ngFor="let video of videos; let i = index"
-         class="absolute inset-0 transition-opacity duration-1000"
-         [ngClass]="{'opacity-100': currentVideoIndex === i, 'opacity-0': currentVideoIndex !== i}">
-      <video #videoElements autoplay muted playsinline class="object-f w-full h-full">
-        <source [src]="video.src" type="video/mp4" />
-      </video>
+<section id="collections" id="products"
+  class="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800">
+  <!-- Multi-Video Background -->
+  <div class="absolute inset-0 z-0 bg-black">
+    <!-- Videos Container - Only one video is visible at a time with crossfade transitions -->
+    <!-- Videos Container - Dynamic with *ngFor -->
+    <div class="video-container relative h-full w-full">
+      <div *ngFor="let video of videos; let i = index" class="absolute inset-0 transition-all duration-1000 ease-in-out"
+        [ngClass]="{'opacity-100 scale-100': currentVideoIndex === i, 'opacity-0 scale-95': currentVideoIndex !== i}">
+        <video #videoElements autoplay muted playsinline loop class="object-cover w-full h-full">
+          <source [src]="video.src" type="video/mp4" />
+        </video>
+        <!-- Video Overlay for better text visibility -->
+        <div *ngIf="currentVideoIndex === i"
+          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none">
+        </div>
+      </div>
+
     </div>
-  
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+
+    <!-- Enhanced Video Navigation -->
+    <div class="absolute bottom-8 left-0 right-0 flex justify-center items-center space-x-6 z-30">
+      <!-- Previous Button -->
+      <button (click)="setCurrentVideo((currentVideoIndex - 1 + videos.length) % videos.length)"
+        class="group relative p-4 rounded-full bg-gradient-to-r from-pink-500/20 to-purple-600/20 backdrop-blur-md border border-white/30 text-white hover:from-pink-500/40 hover:to-purple-600/40 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-pink-500/25">
+        <i class="fas fa-chevron-left text-xl group-hover:-translate-x-1 transition-transform duration-300"></i>
+        <span
+          class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Previous</span>
+      </button>
+
+      <!-- Enhanced Video Dots with Progress -->
+      <div class="flex items-center space-x-3">
+        <div *ngFor="let video of videos; let i = index" class="flex flex-col items-center">
+          <button (click)="setCurrentVideo(i)" class="relative transition-all duration-500 focus:outline-none group"
+            [ngClass]="{'w-12 h-12': currentVideoIndex === i, 'w-4 h-4': currentVideoIndex !== i}">
+            <div class="absolute inset-0 rounded-full transition-all duration-500" [ngClass]="{
+                'bg-gradient-to-r from-pink-500 to-purple-600 shadow-lg shadow-pink-500/50 scale-110 animate-pulse': currentVideoIndex === i, 
+                'bg-white/50 hover:bg-white/70': currentVideoIndex !== i
+              }">
+            </div>
+            <div *ngIf="currentVideoIndex === i" class="absolute inset-1 rounded-full ">
+            </div>
+          </button>
+          <span class="text-xs text-white/80 mt-2 transition-all duration-300"
+            [ngClass]="{'opacity-100 font-semibold': currentVideoIndex === i, 'opacity-60': currentVideoIndex !== i}">
+            {{ i + 1 }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <button (click)="setCurrentVideo((currentVideoIndex + 1) % videos.length)"
+        class="group relative p-4 rounded-full bg-gradient-to-r from-pink-500/20 to-purple-600/20 backdrop-blur-md border border-white/30 text-white hover:from-pink-500/40 hover:to-purple-600/40 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/25">
+        <i class="fas fa-chevron-right text-xl group-hover:translate-x-1 transition-transform duration-300"></i>
+        <span
+          class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Next</span>
+      </button>
+    </div>
+
+    <!-- Video Counter -->
+    <div class="absolute top-8 right-8 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+      <span class="text-white text-sm font-medium">{{ currentVideoIndex + 1 }} / {{ videos.length }}</span>
+    </div>
   </div>
-  
-      
-      <!-- Video Navigation Dots -->
-      <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-20">
-        <button 
-          *ngFor="let video of videos; let i = index" 
-          (click)="setCurrentVideo(i)" 
-          class="w-3 h-3 rounded-full transition-all duration-300 focus:outline-none"
-          [ngClass]="{'bg-white': currentVideoIndex === i, 'bg-gray-400': currentVideoIndex !== i, 'w-6': currentVideoIndex === i}"
-          attr.aria-label="View video {{i+1}}">
-        </button>
-      </div>
-    </div>
-    
-    <!-- Content Overlay -->
-    <div class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up">{{ videos[currentVideoIndex].title }}</h2>
-      <p class="text-xl mb-8 max-w-2xl opacity-0 animate-fade-in-up animation-delay-200">
-        {{ videos[currentVideoIndex].description }}
-      </p>
-            <div class="flex flex-wrap justify-center gap-4 opacity-0 animate-fade-in-up animation-delay-400">
-       
-      </div>
-    </div>
-  </section>
+
+  <!-- Enhanced Content Overlay -->
+  <div
+    class="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white">
+
+    <!-- Enhanced Title -->
+    <h2
+      class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent leading-tight">
+      {{ videos[currentVideoIndex].title }}
+    </h2>
+
+    <!-- Enhanced Description -->
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl animate-fade-in-up animation-delay-200 leading-relaxed text-gray-200">
+      {{ videos[currentVideoIndex].description }}
+    </p>
+  </div>
+</section>

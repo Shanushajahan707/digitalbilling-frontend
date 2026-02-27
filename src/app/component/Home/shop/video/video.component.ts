@@ -15,25 +15,25 @@ export class VideoComponent {
     {
       src: 'videos/rental.mp4',
       title: 'Rental Collection',
-      description: 'Explore premium rental jewellery curated for every occasion.'
+      description: 'Premium rental jewellery starting from ₹350 with 3 days rental period. Categories include AD stone, antique, Kerala jewellery, temple jewellery, and more for every special occasion.'
     },
     {
       src: 'videos/Bangles.mp4',
       title: 'Bangles Essentials',
-      description: 'A colorful range of bangles to match every outfit and mood.'
+      description: 'Complete bangles collection featuring glass, thread, black metal, gold, rose gold, stone, and designer bangles to complement every outfit and traditional look.'
     },
     {
       src: 'videos/RegularJewellery.mp4',
       title: 'Regular Jewellery',
-      description: 'Elegant everyday wear jewellery designed to shine subtly.'
+      description: 'Elegant everyday wear including stone necklaces, daily use jewellery, function pieces, invisible necklaces, and versatile designs for subtle sophistication.'
     },
     {
       src: 'videos/Cosmetics.mp4',
       title: 'Cosmetics',
-      description: 'Discover trending cosmetic picks for a flawless glow.'
+      description: 'Complete beauty collection with facewash, sunscreen, makeup essentials, hair accessories, spray items, body lotions, and trending cosmetic products for a flawless glow.'
     }
   ];
-  
+
 
   private videoElements: ElementRef<HTMLVideoElement>[] = [];
   private autoplayInterval: any;
@@ -41,11 +41,11 @@ export class VideoComponent {
   ngAfterViewInit(): void {
 
     this.videoElements = this.videoElementsRef.toArray();
-  
+
     // Ensure all videos are muted
     this.videoElements.forEach(videoRef => {
       if (videoRef?.nativeElement) {
-        videoRef.nativeElement.muted = true;  
+        videoRef.nativeElement.muted = true;
       }
     });
     this.initVideoListeners();
@@ -60,14 +60,14 @@ export class VideoComponent {
 
   setCurrentVideo(index: number): void {
     this.currentVideoIndex = index;
-  
+
     // Pause all videos first
     this.videoElements.forEach((videoRef) => {
       const video = videoRef.nativeElement;
       video.pause();
       video.currentTime = 0; // Reset video
     });
-  
+
     // Now play the selected video
     const selectedVideo = this.videoElements[index]?.nativeElement;
     if (selectedVideo) {
@@ -78,10 +78,10 @@ export class VideoComponent {
         selectedVideo.play().catch(e => console.error('Retry failed:', e));
       });
     }
-  
+
     this.resetAutoplayTimer();
   }
-  
+
 
   private initVideoListeners(): void {
     this.videoElements.forEach((videoRef, index) => {

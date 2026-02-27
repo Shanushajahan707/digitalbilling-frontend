@@ -6,13 +6,8 @@
 
     <!-- Product Categories -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-      <app-category
-        class="scroll-reveal"
-        *ngFor="let category of categories"
-        [title]="category.title"
-        [description]="category.description"
-        [imageUrl]="category.imageUrl"
-      >
+      <app-category class="scroll-reveal" *ngFor="let category of categories" [title]="category.title"
+        [description]="category.description" [imageUrl]="category.imageUrl">
       </app-category>
     </div>
 

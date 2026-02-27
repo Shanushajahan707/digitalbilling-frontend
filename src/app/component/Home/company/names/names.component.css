@@ -1,72 +1,108 @@
-/* Custom CSS for Marquee */
+/* Enhanced CSS for Marquee */
 @keyframes scroll-left {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-  
-  @keyframes scroll-right {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-  
-  .scroll-left {
-    animation: scroll-left 20s linear infinite;
-  }
-  
-  .scroll-right {
-    animation: scroll-right 20s linear infinite;
-  }
-  
-  .marquee img:hover ~ .scroll-left,
-  .marquee img:hover ~ .scroll-right {
-    animation-play-state: paused;
-  }
-  
-  .marquee .scroll-left:hover,
-  .marquee .scroll-right:hover {
-    animation-play-state: paused;
-  }
-  
-  /* Logo Image Styling with Responsiveness */
-  .logo-img {
-    width: 50px; /* Default width for smaller screens */
-    height: auto;
-    margin-right: 16px; /* Space between logos */
+  0% {
+    transform: translateX(100%);
   }
 
-  .marquee img {
-    max-height: 50px; /* or whatever fits your design */
+  100% {
+    transform: translateX(-100%);
   }
-  .logo-img {
-    background-color: white;
-    aspect-ratio: 1/1; /* Maintain square aspect ratio */
-    object-fit: cover;
-    mix-blend-mode: color-burn;
-  }
-  
+}
 
-  
-  @media (min-width: 640px) { /* Small screens and up */
-    .logo-img {
-      width: 75px;  /* Increase logo size for medium screens */
-    }
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
   }
-  
-  @media (min-width: 768px) { /* Medium screens and up */
-    .logo-img {
-      width: 100px; /* Increase logo size for larger screens */
-    }
+
+  100% {
+    transform: translateX(100%);
   }
-  
-  @media (min-width: 1024px) { /* Large screens and up */
-    .logo-img {
-      width: 120px; /* Even larger logos for bigger screens */
-    }
+}
+
+.scroll-left {
+  animation: scroll-left 25s linear infinite;
+}
+
+.scroll-right {
+  animation: scroll-right 25s linear infinite;
+}
+
+.marquee:hover .scroll-left,
+.marquee:hover .scroll-right {
+  animation-play-state: paused;
+}
+
+.marquee .scroll-left:hover,
+.marquee .scroll-right:hover {
+  animation-play-state: paused;
+}
+
+/* Enhanced hover effects */
+.marquee .group:hover img {
+  filter: grayscale(0%) brightness(1.1);
+}
+
+/* Smooth transitions */
+.marquee div {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Logo Image Styling with Responsiveness */
+.logo-img {
+  width: 50px;
+  /* Default width for smaller screens */
+  height: auto;
+  margin-right: 16px;
+  /* Space between logos */
+}
+
+.marquee img {
+  max-height: 50px;
+  /* or whatever fits your design */
+}
+
+.logo-img {
+  background-color: white;
+  aspect-ratio: 1/1;
+  /* Maintain square aspect ratio */
+  object-fit: cover;
+  mix-blend-mode: color-burn;
+}
+
+
+
+@media (min-width: 640px) {
+
+  /* Small screens and up */
+  .logo-img {
+    width: 75px;
+    /* Increase logo size for medium screens */
   }
-  
-  @media (min-width: 1280px) { /* Extra large screens */
-    .logo-img {
-      width: 150px; /* Maximum logo size */
-    }
+}
+
+@media (min-width: 768px) {
+
+  /* Medium screens and up */
+  .logo-img {
+    width: 100px;
+    /* Increase logo size for larger screens */
   }
-  
+}
+
+@media (min-width: 1024px) {
+
+  /* Large screens and up */
+  .logo-img {
+    width: 120px;
+    /* Even larger logos for bigger screens */
+  }
+}
+
+@media (min-width: 1280px) {
+
+  /* Extra large screens */
+  .logo-img {
+    width: 150px;
+    /* Maximum logo size */
+  }
+}

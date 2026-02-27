@@ -8,227 +8,131 @@
         <!-- Date Field -->
         <div>
           <label class="block text-gray-700 font-semibold">Date</label>
-          <input
-            type="date"
-            formControlName="date"
-            class="w-full py-2 px-4 border rounded-lg bg-gray-100"
-          />
+          <input type="date" formControlName="date" class="w-full py-2 px-4 border rounded-lg bg-gray-100" />
         </div>
 
         <!-- Time Field -->
         <div>
           <label class="block text-gray-700 font-semibold">Time</label>
-          <input
-            type="text"
-            formControlName="time"
-            readonly
-            class="w-full py-2 px-4 border rounded-lg bg-gray-100"
-          />
+          <input type="text" formControlName="time" readonly class="w-full py-2 px-4 border rounded-lg bg-gray-100" />
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
           <label class="block text-gray-700 font-semibold">Customer Name</label>
-          <input
-            type="text"
-            formControlName="customerName"
-            class="w-full py-2 px-4 border rounded-lg"
-          />
-          <div
-            *ngIf="
+          <input type="text" formControlName="customerName" class="w-full py-2 px-4 border rounded-lg" />
+          <div *ngIf="
               billForm.get('customerName')?.invalid &&
               billForm.get('customerName')?.touched
-            "
-            class="text-red-500 text-sm"
-          >
+            " class="text-red-500 text-sm">
             Enter a valid name.
           </div>
         </div>
 
         <div>
-          <label class="block text-gray-700 font-semibold"
-            >Customer Number</label
-          >
-          <input
-            maxlength="10"
-            type="tel"
-            formControlName="customerNumber"
-            class="w-full py-2 px-4 border rounded-lg"
-          />
-          <div
-            *ngIf="
+          <label class="block text-gray-700 font-semibold">Customer Number</label>
+          <input maxlength="10" type="tel" formControlName="customerNumber"
+            class="w-full py-2 px-4 border rounded-lg" />
+          <div *ngIf="
               billForm.get('customerNumber')?.invalid &&
               billForm.get('customerNumber')?.touched
-            "
-            class="text-red-500 text-sm"
-          >
+            " class="text-red-500 text-sm">
             Enter a valid 10-digit Indian mobile number.
           </div>
         </div>
       </div>
 
       <div class="mb-4">
-        <label class="block text-gray-700 font-semibold"
-          >Customer Address</label
-        >
-        <textarea
-          formControlName="customerAddress"
-          class="w-full py-2 px-4 border rounded-lg"
-          rows="3"
-        ></textarea>
-        <div
-          *ngIf="
+        <label class="block text-gray-700 font-semibold">Customer Address</label>
+        <textarea formControlName="customerAddress" class="w-full py-2 px-4 border rounded-lg" rows="3"></textarea>
+        <div *ngIf="
             billForm.get('customerAddress')?.invalid &&
             billForm.get('customerAddress')?.touched
-          "
-          class="text-red-500 text-sm"
-        >
+          " class="text-red-500 text-sm">
           Address is required.
         </div>
       </div>
 
       <!-- Dynamic Product Rows -->
       <div formArrayName="products">
-        <div
-          *ngFor="let product of products.controls; let i = index"
-          [formGroupName]="i"
-          class="grid grid-cols-1 md:grid-cols-6 gap-4 border p-4 rounded-lg bg-gray-50 mb-2"
-        >
+        <div *ngFor="let product of products.controls; let i = index" [formGroupName]="i"
+          class="grid grid-cols-1 md:grid-cols-6 gap-4 border p-4 rounded-lg bg-gray-50 mb-2">
           <div>
-            <label class="block text-sm font-medium text-gray-700"
-              >Product Name</label
-            >
-            <input
-              type="text"
-              formControlName="productName"
-              class="py-2 px-3 border rounded w-full"
-            />
-            <div
-              *ngIf="
+            <label class="block text-sm font-medium text-gray-700">Product Name</label>
+            <input type="text" formControlName="productName" class="py-2 px-3 border rounded w-full" />
+            <div *ngIf="
                 product.get('productName')?.invalid &&
                 product.get('productName')?.touched
-              "
-              class="text-red-500 text-sm"
-            >
+              " class="text-red-500 text-sm">
               Required
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700"
-              >Quantity</label
-            >
-            <input
-              type="number"
-              formControlName="quantity"
-              (input)="calculateTotalAmount()"
-              class="py-2 px-3 border rounded w-full"
-            />
-            <div
-              *ngIf="
+            <label class="block text-sm font-medium text-gray-700">Quantity</label>
+            <input type="number" formControlName="quantity" (input)="calculateTotalAmount()"
+              class="py-2 px-3 border rounded w-full" />
+            <div *ngIf="
                 product.get('quantity')?.invalid &&
                 product.get('quantity')?.touched
-              "
-              class="text-red-500 text-sm"
-            >
+              " class="text-red-500 text-sm">
               Must be > 0
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700"
-              >Shop Rate</label
-            >
-            <input
-              type="number"
-              formControlName="shopRate"
-              (input)="calculateTotal(i)"
-              class="py-2 px-3 border rounded w-full"
-            />
-            <div
-              *ngIf="
+            <label class="block text-sm font-medium text-gray-700">Shop Rate</label>
+            <input type="number" formControlName="shopRate" (input)="calculateTotal(i)"
+              class="py-2 px-3 border rounded w-full" />
+            <div *ngIf="
                 product.get('shopRate')?.invalid &&
                 product.get('shopRate')?.touched
-              "
-              class="text-red-500 text-sm"
-            >
+              " class="text-red-500 text-sm">
               Must be > 0
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700"
-              >Original MRP</label
-            >
-            <input
-              type="number"
-              formControlName="mrp"
-              class="py-2 px-3 border rounded w-full"
-            />
+            <label class="block text-sm font-medium text-gray-700">Original MRP</label>
+            <input type="number" formControlName="mrp" class="py-2 px-3 border rounded w-full" />
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700"
-              >Discount</label
-            >
-            <input
-              type="number"
-              formControlName="discount"
-              (input)="calculateTotalAmount()"
-              class="py-2 px-3 border rounded w-full"
-            />
+            <label class="block text-sm font-medium text-gray-700">Discount</label>
+            <input type="number" formControlName="discount" (input)="calculateTotalAmount()"
+              class="py-2 px-3 border rounded w-full" />
           </div>
 
           <div class="flex items-end justify-center">
-            <button
-              type="button"
-              (click)="removeProduct(i)"
-              class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-            >
+            <button type="button" (click)="removeProduct(i)"
+              class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
               Remove
             </button>
           </div>
         </div>
       </div>
 
-      <button
-        type="button"
-        (click)="addProduct()"
-        [disabled]="products.length >= 10"
-        class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-      >
+      <button type="button" (click)="addProduct()" [disabled]="products.length >= 10"
+        class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
         Add Product
       </button>
 
       <!-- Total Discount -->
       <div class="my-4">
         <label class="block text-gray-700 font-semibold">Total Discount</label>
-        <input
-          type="text"
-          [value]="totalDiscount"
-          readonly
-          class="bg-gray-100 w-full py-2 px-4 border rounded-lg"
-        />
+        <input type="text" [value]="totalDiscount" readonly class="bg-gray-100 w-full py-2 px-4 border rounded-lg" />
       </div>
 
       <!-- Total Amount -->
       <div class="my-4">
         <label class="block text-gray-700 font-semibold">Total Amount</label>
-        <input
-          type="text"
-          formControlName="total"
-          readonly
-          class="bg-gray-100 w-full py-2 px-4 border rounded-lg"
-        />
+        <input type="text" formControlName="total" readonly class="bg-gray-100 w-full py-2 px-4 border rounded-lg" />
       </div>
 
       <div class="text-center">
-        <button
-          type="submit"
-          [disabled]="billForm.invalid"
-          class="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600"
-        >
+        <button type="submit" [disabled]="billForm.invalid"
+          class="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600">
           Submit Bill
         </button>
       </div>

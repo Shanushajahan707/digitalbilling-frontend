@@ -1,55 +1,146 @@
-<header class="bg-white shadow-sm">
-  <div class="container mx-auto px-4 py-4">
-    <nav class="flex flex-col md:flex-row justify-between items-center">
-      <!-- Logo -->
-      <div class="text-center mb-4 md:mb-0">
-        <h1 class="text-3xl font-bold logo-text text-pink-500">
-         <a [routerLink]="['/']" href=""> Belles Avenue</a>
-        </h1>
-      </div>
-
-      <!-- Navigation Links - Mobile Hamburger -->
-      <div class="block md:hidden w-full">
-        <button
-          (click)="toggleMenu()"
-          class="text-gray-700 hover:text-pink-500 focus:outline-none"
-        >
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-        <div [ngClass]="{ hidden: !isMenuOpen }" class="mt-4 space-y-2">
-          <a href="#" class="block py-2 text-gray-700 hover:text-pink-500"
-            >Home</a
-          >
-          <a
-            href="#products"
-            class="block py-2 text-gray-700 hover:text-pink-500"
-            >Products</a
-          >
-          <a href="#about" class="block py-2 text-gray-700 hover:text-pink-500"
-            >About</a
-          >
-          <a
-            href="#contact"
-            class="block py-2 text-gray-700 hover:text-pink-500"
-            >Contact</a
-          >
-          <!-- <a href="#" class="block py-2 text-gray-700 hover:text-pink-500">
-            <i class="fas fa-shopping-cart mr-2"></i>Cart
+<!-- Enhanced Navigation Header -->
+<header class="bg-gradient-to-r from-white via-pink-50 to-white shadow-lg top-0 z-50 backdrop-blur-sm">
+  <!-- Top Bar -->
+  <div class="bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center text-sm">
+        <div class="flex items-center space-x-4">
+          <span class="flex items-center">
+            <i class="fas fa-phone-alt mr-2"></i>
+            <a href="https://wa.me/917025000970" class="hover:text-yellow-300 transition-colors">+91 70250 00970</a>
+          </span>
+          <span class="hidden sm:flex items-center">
+            <i class="fas fa-envelope mr-2"></i>
+            <a href="mailto:avenuesbeautyhub@gmail.com"
+              class="hover:text-yellow-300 transition-colors">avenuesbeautyhub&#64;gmail.com</a>
+          </span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <a href="https://wa.me/917025000970" target="_blank" class="hover:text-yellow-300 transition-colors">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://www.instagram.com/belles_fancy_" target="_blank"
+            class="hover:text-yellow-300 transition-colors">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <!-- <a href="#" class="hover:text-yellow-300 transition-colors">
+            <i class="fab fa-facebook-f"></i>
           </a> -->
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Navigation Links - Desktop -->
-      <div class="hidden md:flex space-x-8 items-center">
-        <a href="#" class="text-gray-700 hover:text-pink-500">Home</a>
-        <a href="#products" class="text-gray-700 hover:text-pink-500"
-          >Products</a
-        >
-        <a href="#about" class="text-gray-700 hover:text-pink-500">About</a>
-        <a href="#contact" class="text-gray-700 hover:text-pink-500">Contact</a>
-        <!-- <a href="#" class="text-gray-700 hover:text-pink-500">
-          <i class="fas fa-shopping-cart text-xl"></i>
-        </a> -->
+  <!-- Main Navigation -->
+  <div class="container mx-auto px-4 py-4">
+    <nav class="flex flex-col lg:flex-row justify-between items-center">
+      <!-- Enhanced Logo -->
+      <div class="flex items-center mb-4 lg:mb-0">
+        <div
+          class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+          <img src="logo2.png" alt="Belles Avenue Logo" class="w-full h-full object-cover rounded-full">
+        </div>
+        <div>
+          <h1 class="text-3xl font-bold">
+            <a [routerLink]="['/']"
+              class="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent hover:from-pink-500 hover:to-purple-500 transition-all duration-300">
+              Belles Avenue
+            </a>
+          </h1>
+          <p class="text-sm text-gray-600 font-medium">Where beauty lasts forever</p>
+        </div>
+      </div>
+
+      <!-- Enhanced Mobile Menu Button -->
+      <div class="lg:hidden w-full flex justify-between items-center">
+
+        <button (click)="toggleMenu()"
+          class="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-3 rounded-lg hover:scale-105 transition-transform duration-300">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Enhanced Mobile Menu -->
+      <div [ngClass]="{ hidden: !isMenuOpen }"
+        class="lg:hidden mt-4 bg-white rounded-xl shadow-xl p-6 border border-pink-200">
+        <div class="space-y-3">
+          <a href="#"
+            class="flex items-center p-3 rounded-lg bg-pink-50 hover:bg-pink-100 transition-colors duration-300 group">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+              <i class="fas fa-home text-white text-sm"></i>
+            </div>
+            <span class="font-medium text-gray-700 group-hover:text-pink-600">Home</span>
+          </a>
+          <a href="#about"
+            class="flex items-center p-3 rounded-lg bg-pink-50 hover:bg-pink-100 transition-colors duration-300 group">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+              <i class="fas fa-info-circle text-white text-sm"></i>
+            </div>
+            <span class="font-medium text-gray-700 group-hover:text-pink-600">About</span>
+          </a>
+          <a href="#products"
+            class="flex items-center p-3 rounded-lg bg-pink-50 hover:bg-pink-100 transition-colors duration-300 group">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+              <i class="fas fa-gem text-white text-sm"></i>
+            </div>
+            <span class="font-medium text-gray-700 group-hover:text-pink-600">Products</span>
+          </a>
+          <a href="#contact"
+            class="flex items-center p-3 rounded-lg bg-pink-50 hover:bg-pink-100 transition-colors duration-300 group">
+            <div
+              class="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
+              <i class="fas fa-phone text-white text-sm"></i>
+            </div>
+            <span class="font-medium text-gray-700 group-hover:text-pink-600">Contact</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Enhanced Desktop Navigation -->
+      <div class="hidden lg:flex items-center space-x-6">
+        <div class="flex space-x-1">
+          <a href="#" class="group relative px-4 py-2 rounded-lg hover:bg-pink-50 transition-all duration-300">
+            <div class="flex items-center">
+              <i class="fas fa-home mr-2 text-pink-500 group-hover:scale-110 transition-transform"></i>
+              <span class="font-medium text-gray-700 group-hover:text-pink-600">Home</span>
+            </div>
+            <div
+              class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-600 group-hover:w-full transition-all duration-300">
+            </div>
+          </a>
+          <a href="#about" class="group relative px-4 py-2 rounded-lg hover:bg-pink-50 transition-all duration-300">
+            <div class="flex items-center">
+              <i class="fas fa-info-circle mr-2 text-pink-500 group-hover:scale-110 transition-transform"></i>
+              <span class="font-medium text-gray-700 group-hover:text-pink-600">About</span>
+            </div>
+            <div
+              class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-600 group-hover:w-full transition-all duration-300">
+            </div>
+          </a>
+          <a href="#products" class="group relative px-4 py-2 rounded-lg hover:bg-pink-50 transition-all duration-300">
+            <div class="flex items-center">
+              <i class="fas fa-gem mr-2 text-pink-500 group-hover:scale-110 transition-transform"></i>
+              <span class="font-medium text-gray-700 group-hover:text-pink-600">Products</span>
+            </div>
+            <div
+              class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-600 group-hover:w-full transition-all duration-300">
+            </div>
+          </a>
+          <a href="#contact" class="group relative px-4 py-2 rounded-lg hover:bg-pink-50 transition-all duration-300">
+            <div class="flex items-center">
+              <i class="fas fa-phone mr-2 text-pink-500 group-hover:scale-110 transition-transform"></i>
+              <span class="font-medium text-gray-700 group-hover:text-pink-600">Contact</span>
+            </div>
+            <div
+              class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-600 group-hover:w-full transition-all duration-300">
+            </div>
+          </a>
+        </div>
+
+
       </div>
     </nav>
   </div>

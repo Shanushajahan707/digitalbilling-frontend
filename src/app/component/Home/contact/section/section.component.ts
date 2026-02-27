@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { LocationComponent } from '../../location/location.component';
-import { FormComponent } from '../form/form.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -12,6 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class ContactSectionComponent {
   contactForm: FormGroup;
+  formId = 'YOUR_FORM_ID_HERE';
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -24,7 +24,10 @@ export class ContactSectionComponent {
   onSubmit() {
     if (this.contactForm.valid) {
       console.log('Form submitted:', this.contactForm.value);
-      // Implement form submission logic here
+      // Formspree will handle the submission automatically
+      // The form will be submitted to Formspree
+      // You can add a success message here if needed
+      alert('Thank you for your message! We will get back to you soon.');
       this.contactForm.reset();
     } else {
       // Mark all fields as touched to trigger validation visuals
